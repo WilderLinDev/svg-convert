@@ -37,7 +37,7 @@ function SvgConverter() {
     }
 
     if (file.type !== 'image/svg+xml') {
-      setError('Please select a valid SVG file !')
+      setError('Please select a valid SVG file')
       return
     }
 
