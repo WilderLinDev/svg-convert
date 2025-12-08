@@ -19,10 +19,11 @@ const PetMemePromo = () => {
           <NextImage
             src="/meme.png"
             alt="Funny pet meme example"
-            width={280}
-            height={200}
+            width={680}
+            height={507}
             className="pet-meme-image"
             style={{ width: '100%', height: 'auto' }}
+            priority
           />
         </div>
         <a 
