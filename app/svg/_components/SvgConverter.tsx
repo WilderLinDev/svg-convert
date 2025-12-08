@@ -5,6 +5,7 @@ import { useState } from 'react'
 import ImageConverter from '@/app/svg/_utils/ImageConverter'
 import FileUpload from './FileUpload'
 import ProgressBar from './ProgressBar'
+import PetMemePromo from './PetMemePromo'
 import './SvgConverter.css'
 
 const ICON_FORMAT = '/svg/icon-format.svg'
@@ -305,6 +306,8 @@ function SvgConverter() {
               />
             )}
           </div>
+
+          <PetMemePromo />
         </div>
 
       </div>
