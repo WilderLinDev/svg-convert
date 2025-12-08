@@ -1,34 +1,51 @@
 .pet-meme-promo {
-  padding: 16px;
-  background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
-  border: 1px solid #fecaca;
+  padding: 20px;
+  background: white;
+  border: 1px solid #fee2e2;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  height: 100%;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.pet-meme-promo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #ef4444;
 }
 
 .pet-meme-promo:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-color: #fca5a5;
 }
 
 .pet-meme-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 12px;
-  justify-content: center;
-  height: 100%;
+  height: auto;
+}
+
+.pet-meme-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
 }
 
 .pet-meme-title {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #991b1b;
+  color: #1f2937;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -37,34 +54,41 @@
 .pet-meme-description {
   margin: 0;
   font-size: 0.95rem;
-  color: #7f1d1d;
-  line-height: 1.4;
+  color: #4b5563;
+  line-height: 1.5;
 }
 
 .pet-meme-button {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background-color: #ef4444;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 9999px;
+  justify-content: center;
+  gap: 8px;
+  background-color: #fff1f2;
+  color: #991b1b;
+  padding: 10px 16px;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  border: 1px solid #fecaca;
+  margin-top: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .pet-meme-button:hover {
-  background-color: #dc2626;
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  color: #7f1d1d;
 }
 
 .pet-meme-badge {
-  background-color: #fca5a5;
-  color: #7f1d1d;
+  background-color: #fee2e2;
+  color: #991b1b;
   font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -72,14 +96,13 @@
 
 @media (min-width: 1024px) {
   .pet-meme-promo {
-    width: 300px;
-    margin-left: 20px;
+    width: 280px;
   }
 }
 
 @media (max-width: 1023px) {
   .pet-meme-promo {
-    margin-top: 20px;
     width: 100%;
+    margin-top: 0;
   }
 }

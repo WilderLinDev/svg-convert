@@ -5,9 +5,12 @@ const PetMemePromo = () => {
   return (
     <div className="pet-meme-promo">
       <div className="pet-meme-content">
-        <h3 className="pet-meme-title">
-          🐶 PetMeme.org <span className="pet-meme-badge">New</span>
-        </h3>
+        <div className="pet-meme-header">
+          <h3 className="pet-meme-title">
+            🐶 PetMeme.org
+          </h3>
+          <span className="pet-meme-badge">New</span>
+        </div>
         <p className="pet-meme-description">
           Turn your pet photos into hilarious AI memes instantly! No prompts needed.
         </p>
