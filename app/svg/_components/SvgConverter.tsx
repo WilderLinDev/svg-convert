@@ -119,18 +119,6 @@ function SvgConverter() {
     }
   }
 
-  const downloadSource = () => {
-    if (!svgFile) return
-    const url = URL.createObjectURL(svgFile)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = svgFile.name
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-  }
-
 
   return (
     <div className="svg-converter">
@@ -289,33 +277,6 @@ function SvgConverter() {
                 </label>
               </div>
             )}
-
-            <div className="action-section">
-              <button
-                className="convert-btn"
-                onClick={convertImage}
-                disabled={!svgContent || isConverting}
-              >
-                {isConverting ? (
-                  <>
-                    <span className="loading-spinner">⏳</span>
-                    Converting...
-                  </>
-                ) : (
-                  <>
-                    <span>🚀</span>
-                    Convert Now
-                  </>
-                )}
-              </button>
-
-              {(progress > 0 || isConverting) && (
-                <ProgressBar
-                  progress={progress}
-                  status={isConverting ? 'loading' : progress === 100 ? 'success' : undefined}
-                />
-              )}
-            </div>
           </div>
         </div>
 
@@ -324,10 +285,26 @@ function SvgConverter() {
             <div className="preview-section">
               <div className="preview-header">
                 <h3>👁️ Preview</h3>
-                <button className="download-source-btn" onClick={downloadSource}>
-                  ⬇ SVG
+                <button 
+                  className="download-result-btn" 
+                  onClick={convertImage}
+                  disabled={isConverting}
+                >
+                  {isConverting ? (
+                    <span className="loading-spinner">⏳</span>
+                  ) : (
+                    <>⬇ Download {outputFormat.toUpperCase()}</>
+                  )}
                 </button>
               </div>
+              {(progress > 0 || isConverting) && (
+                <div style={{ padding: '0 24px' }}>
+                  <ProgressBar
+                    progress={progress}
+                    status={isConverting ? 'loading' : progress === 100 ? 'success' : undefined}
+                  />
+                </div>
+              )}
               <div 
                 className="svg-preview-container"
                 dangerouslySetInnerHTML={{ __html: svgContent }}

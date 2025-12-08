@@ -242,25 +242,33 @@ html, body {
   color: #374151;
 }
 
-.download-source-btn {
-  background: white;
-  border: 1px solid #e5e7eb;
-  padding: 6px 12px;
+.download-result-btn {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 8px 16px;
   border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.download-source-btn:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
-  color: #111827;
+.download-result-btn:hover:not(:disabled) {
+  background: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.download-result-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .svg-preview-container {
