@@ -147,13 +147,13 @@ function SvgConverter() {
           </div>
 
           <div className="settings-section">
+            <h2>⚙️ Conversion Settings</h2>
             <div className="format-and-dpi">
               <div className="format-group">
                 <h3>
                   <NextImage
                     src={ICON_FORMAT}
-                    alt=""
-                    aria-hidden="true"
+                    alt="File format selection icon"
                     width={24}
                     height={24}
                     className="section-icon"
@@ -198,8 +198,7 @@ function SvgConverter() {
                 <h3>
                   <NextImage
                     src={ICON_DPI}
-                    alt=""
-                    aria-hidden="true"
+                    alt="DPI resolution selection icon"
                     width={24}
                     height={24}
                     className="section-icon"
@@ -257,8 +256,7 @@ function SvgConverter() {
                   <h3>
                     <NextImage
                       src={ICON_BACKGROUND}
-                      alt=""
-                      aria-hidden="true"
+                      alt="Background transparency toggle icon"
                       width={24}
                       height={24}
                       className="section-icon"
