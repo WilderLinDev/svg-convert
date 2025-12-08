@@ -350,9 +350,4 @@ function SvgConverter() {
   )
 }
 
-      </div>
-    </div>
-  )
-}
-
 export default SvgConverter
