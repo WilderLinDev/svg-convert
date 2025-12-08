@@ -1,4 +1,7 @@
 .pet-meme-promo {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   padding: 20px;
   background: white;
   border: 1px solid #fee2e2;

@@ -4,7 +4,12 @@ import './PetMemePromo.css';
 
 const PetMemePromo = () => {
   return (
-    <div className="pet-meme-promo">
+    <a 
+      href="https://petmeme.org" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="pet-meme-promo"
+    >
       <div className="pet-meme-content">
         <div className="pet-meme-header">
           <h3 className="pet-meme-title">
@@ -26,16 +31,11 @@ const PetMemePromo = () => {
             priority
           />
         </div>
-        <a 
-          href="https://petmeme.org" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="pet-meme-button"
-        >
+        <div className="pet-meme-button">
           ✨ Create Pet Memes
-        </a>
+        </div>
       </div>
-    </div>
+    </a>
   );
 };
 
