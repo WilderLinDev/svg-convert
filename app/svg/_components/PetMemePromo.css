@@ -1,5 +1,4 @@
 .pet-meme-promo {
-  margin-top: 20px;
   padding: 16px;
   background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
   border: 1px solid #fecaca;
@@ -7,6 +6,8 @@
   text-align: center;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .pet-meme-promo:hover {
@@ -19,6 +20,8 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  justify-content: center;
+  height: 100%;
 }
 
 .pet-meme-title {
@@ -65,4 +68,18 @@
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.05em;
+}
+
+@media (min-width: 1024px) {
+  .pet-meme-promo {
+    width: 300px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .pet-meme-promo {
+    margin-top: 20px;
+    width: 100%;
+  }
 }

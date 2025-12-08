@@ -17,7 +17,7 @@ const PetMemePromo = () => {
           rel="noopener noreferrer" 
           className="pet-meme-button"
         >
-          ✨ Create Pet Memes Free
+          ✨ Create Pet Memes
         </a>
       </div>
     </div>

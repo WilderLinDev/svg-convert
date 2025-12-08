@@ -306,7 +306,9 @@ function SvgConverter() {
               />
             )}
           </div>
+        </div>
 
+        <div className="right-panel">
           <PetMemePromo />
         </div>
 
