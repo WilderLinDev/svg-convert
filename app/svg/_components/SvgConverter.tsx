@@ -140,15 +140,27 @@ function SvgConverter() {
       <div className="converter-layout">
         <div className="left-panel">
           <div className="upload-section">
-            <h2>📁 Upload SVG File</h2>
+            <h2>📁 Upload & Preview</h2>
             <FileUpload
               onFileSelect={handleFileSelect}
               disabled={isConverting}
             />
           </div>
 
+          {svgContent && (
+            <div className="preview-section">
+              <h3>👁️ Preview</h3>
+              <div 
+                className="svg-preview-container"
+                dangerouslySetInnerHTML={{ __html: svgContent }}
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="right-panel">
           <div className="settings-section">
-            <h2>⚙️ Conversion Settings</h2>
+            <h2>⚙️ Settings</h2>
             <div className="format-and-dpi">
               <div className="format-group">
                 <h3>
@@ -306,9 +318,6 @@ function SvgConverter() {
               />
             )}
           </div>
-        </div>
-
-        <div className="right-panel">
           <PetMemePromo />
         </div>
 

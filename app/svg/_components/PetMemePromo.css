@@ -114,7 +114,8 @@
 
 @media (min-width: 1024px) {
   .pet-meme-promo {
-    width: 280px;
+    /* Width handled by parent grid/flex */
+    width: 100%;
   }
 }
 
