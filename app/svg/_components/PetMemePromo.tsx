@@ -1,4 +1,5 @@
 import React from 'react';
+import NextImage from 'next/image';
 import './PetMemePromo.css';
 
 const PetMemePromo = () => {
@@ -14,6 +15,16 @@ const PetMemePromo = () => {
         <p className="pet-meme-description">
           Turn your pet photos into hilarious AI memes instantly! No prompts needed.
         </p>
+        <div className="pet-meme-image-container">
+          <NextImage
+            src="/meme.png"
+            alt="Funny pet meme example"
+            width={280}
+            height={200}
+            className="pet-meme-image"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
         <a 
           href="https://petmeme.org" 
           target="_blank" 
