@@ -119,6 +119,18 @@ function SvgConverter() {
     }
   }
 
+  const downloadSource = () => {
+    if (!svgFile) return
+    const url = URL.createObjectURL(svgFile)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = svgFile.name
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
 
   return (
     <div className="svg-converter">
@@ -140,35 +152,23 @@ function SvgConverter() {
       <div className="converter-layout">
         <div className="left-panel">
           <div className="upload-section">
-            <h2>📁 Upload & Preview</h2>
+            <h2>📁 Upload SVG</h2>
             <FileUpload
               onFileSelect={handleFileSelect}
               disabled={isConverting}
             />
           </div>
 
-          {svgContent && (
-            <div className="preview-section">
-              <h3>👁️ Preview</h3>
-              <div 
-                className="svg-preview-container"
-                dangerouslySetInnerHTML={{ __html: svgContent }}
-              />
-            </div>
-          )}
-        </div>
-
-        <div className="right-panel">
           <div className="settings-section">
-            <h2>⚙️ Settings</h2>
+            <h2>⚙️ Configuration</h2>
             <div className="format-and-dpi">
               <div className="format-group">
                 <h3>
                   <NextImage
                     src={ICON_FORMAT}
                     alt="File format selection icon"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
                     className="section-icon"
                   />
                   Format
@@ -212,8 +212,8 @@ function SvgConverter() {
                   <NextImage
                     src={ICON_DPI}
                     alt="DPI resolution selection icon"
-                    width={24}
-                    height={24}
+                    width={20}
+                    height={20}
                     className="section-icon"
                   />
                   DPI
@@ -270,8 +270,8 @@ function SvgConverter() {
                     <NextImage
                       src={ICON_BACKGROUND}
                       alt="Background transparency toggle icon"
-                      width={24}
-                      height={24}
+                      width={20}
+                      height={20}
                       className="section-icon"
                     />
                     Background
@@ -290,36 +290,65 @@ function SvgConverter() {
               </div>
             )}
 
-          </div>
+            <div className="action-section">
+              <button
+                className="convert-btn"
+                onClick={convertImage}
+                disabled={!svgContent || isConverting}
+              >
+                {isConverting ? (
+                  <>
+                    <span className="loading-spinner">⏳</span>
+                    Converting...
+                  </>
+                ) : (
+                  <>
+                    <span>🚀</span>
+                    Convert Now
+                  </>
+                )}
+              </button>
 
-          <div className="action-section">
-            <button
-              className="convert-btn"
-              onClick={convertImage}
-              disabled={!svgContent || isConverting}
-            >
-              {isConverting ? (
-                <>
-                  <span className="loading-spinner">⏳</span>
-                  Converting...
-                </>
-              ) : (
-                <>
-                  <span>🚀</span>
-                  Convert Image
-                </>
+              {(progress > 0 || isConverting) && (
+                <ProgressBar
+                  progress={progress}
+                  status={isConverting ? 'loading' : progress === 100 ? 'success' : undefined}
+                />
               )}
-            </button>
-
-            {(progress > 0 || isConverting) && (
-              <ProgressBar
-                progress={progress}
-                status={isConverting ? 'loading' : progress === 100 ? 'success' : undefined}
-              />
-            )}
+            </div>
           </div>
+        </div>
+
+        <div className="right-panel">
+          {svgContent ? (
+            <div className="preview-section">
+              <div className="preview-header">
+                <h3>👁️ Preview</h3>
+                <button className="download-source-btn" onClick={downloadSource}>
+                  ⬇ SVG
+                </button>
+              </div>
+              <div 
+                className="svg-preview-container"
+                dangerouslySetInnerHTML={{ __html: svgContent }}
+              />
+            </div>
+          ) : (
+            <div className="preview-placeholder">
+              <div className="placeholder-content">
+                <div className="placeholder-icon">🖼️</div>
+                <p>Upload an SVG to see preview</p>
+              </div>
+            </div>
+          )}
+          
           <PetMemePromo />
         </div>
+
+      </div>
+    </div>
+  )
+}
 
       </div>
     </div>
